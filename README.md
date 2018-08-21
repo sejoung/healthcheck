@@ -7,7 +7,6 @@ HealthCheckController 설정
  - api 호출하는 방법
  - fixedDelay 마다 동작
    - fixedDelay = 60000 은 1분을 의미
-   
 
 HealthCheckService 설정
 ---
@@ -22,6 +21,9 @@ Telegram 의 url 설정
 
  - telegram.url=https://api.telegram.org/  
 Telegram으로 HealthCechk 결과 송출
+
+Spring boot 사용
+---
 
 
 
