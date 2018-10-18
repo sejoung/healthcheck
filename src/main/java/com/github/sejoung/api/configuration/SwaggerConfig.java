@@ -26,7 +26,7 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("Enliple Health Check").description("모비온 헬스체크 서비스").version("0.1").build();
+        return new ApiInfoBuilder().title("Health Check").description("서비스 상태 확인").version("0.1").build();
     }
 
 }

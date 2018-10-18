@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.7.RELEASE</version>
+		<version>2.0.5.RELEASE</version>
 	</parent>
 	<groupId>com.github.sejoung</groupId>
 	<artifactId>healthcheck</artifactId>
 	<packaging>jar</packaging>
 	<version>0.1</version>
 	<name>spring-boot-healthcheck</name>
-	<description>maradb insert</description>
+	<description>service healthcheck</description>
 	<url>https://github.com/sejoung</url>
 	<licenses>
 		<license>
@@ -28,7 +28,6 @@
 	</developers>
 	<properties>
 		<java.version>1.8</java.version>
-		<joda-time.version>2.9</joda-time.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<springfox-version>2.7.0</springfox-version>
