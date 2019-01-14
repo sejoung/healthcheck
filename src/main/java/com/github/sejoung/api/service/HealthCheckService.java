@@ -4,8 +4,11 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.github.sejoung.api.model.ClickViewData;
+import com.github.sejoung.api.model.ClickViewDataSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -32,7 +35,7 @@ public class HealthCheckService {
         HttpEntity<String> entity = new HttpEntity<String>(headers);
         List<String> list = new ArrayList<String>();
         list.add("127.0.0.1");
-        
+
         for (String url : list) {
             try {
                 ResponseEntity<String> response = restTemplate.exchange("http://" + url + "/test", HttpMethod.GET, entity, String.class);
@@ -49,7 +52,7 @@ public class HealthCheckService {
             }
         }
     }
-    
+
     public String testJson() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
@@ -73,4 +76,23 @@ public class HealthCheckService {
         }
         return json;
     }
+
+    public void test2() {
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<String>(headers);
+        String kafkaGroupSummeryUrl = "/api/status/kafka/audience-group/KF/groupSummary";
+
+        var ptr = new ParameterizedTypeReference<ClickViewDataSummary>() {};
+
+        var response = restTemplate.exchange(kafkaGroupSummeryUrl, HttpMethod.GET, entity, ptr);
+
+       // ResponseEntity<String> response = restTemplate.exchange(kafkaGroupSummeryUrl, HttpMethod.GET, entity, String.class);
+
+        if(response.getStatusCode().is2xxSuccessful()){
+            log.debug(response.getBody().getClickViewData().getTotalLag().toString());
+        }
+
+
+    }
+
 }

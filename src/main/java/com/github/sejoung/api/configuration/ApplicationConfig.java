@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @Configuration
 public class ApplicationConfig {
+
     @Bean
     public RestTemplate getRestTemplate() {
         HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
