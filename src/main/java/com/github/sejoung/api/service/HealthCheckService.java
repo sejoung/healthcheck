@@ -34,11 +34,11 @@ public class HealthCheckService {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<String>(headers);
         List<String> list = new ArrayList<String>();
-        list.add("127.0.0.1");
+        list.add("httpbin.org");
 
         for (String url : list) {
             try {
-                ResponseEntity<String> response = restTemplate.exchange("http://" + url + "/test", HttpMethod.GET, entity, String.class);
+                ResponseEntity<String> response = restTemplate.exchange("http://" + url + "/get", HttpMethod.GET, entity, String.class);
                 HttpStatus statusCode = response.getStatusCode();
                 log.debug(url);
                 if (!HttpStatus.OK.equals(statusCode)) {

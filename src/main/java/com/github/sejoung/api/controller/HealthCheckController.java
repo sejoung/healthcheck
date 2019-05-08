@@ -20,7 +20,7 @@ public class HealthCheckController {
         return healthCheckService.testJson();
     }
 
-    //@Scheduled(fixedDelay = 60000)
+    @Scheduled(fixedDelay = 8000)
     public void recommendBatchScheduled() {
         healthCheckService.test();
     }
